@@ -2,8 +2,10 @@ package com.tipsytaxi;
 
 import android.app.Application;
 import android.content.res.Configuration;
+
 import androidx.annotation.NonNull;
 
+import com.facebook.react.BuildConfig;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -13,10 +15,12 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 
-import expo.modules.ApplicationLifecycleDispatcher;
-import expo.modules.ReactNativeHostWrapper;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
 import java.util.List;
+
+import expo.modules.ApplicationLifecycleDispatcher;
+import expo.modules.ReactNativeHostWrapper;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -33,7 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
         List<ReactPackage> packages = new PackageList(this).getPackages();
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
-        return packages;
+          new SplashScreenReactPackage();
+          return packages;
       }
 
       @Override
@@ -41,15 +46,12 @@ public class MainApplication extends Application implements ReactApplication {
         return ".expo/.virtual-metro-entry";
       }
 
-      @Override
-      protected boolean isNewArchEnabled() {
-        return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
-      }
+//      @Override
+//      protected boolean isNewArchEnabled() {
+//        return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
+//      }
 
-      @Override
-      protected Boolean isHermesEnabled() {
-        return BuildConfig.IS_HERMES_ENABLED;
-      }
+//     s
   });
 
   @Override
@@ -61,13 +63,13 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
-    if (!BuildConfig.REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS) {
-      ReactFeatureFlags.unstable_useRuntimeSchedulerAlways = false;
-    }
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
-      DefaultNewArchitectureEntryPoint.load();
-    }
+//    if (!BuildConfig.REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS) {
+//      ReactFeatureFlags.unstable_useRuntimeSchedulerAlways = false;
+//    }
+//    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
+//      // If you opted-in for the New Architecture, we load the native entry point for this app.
+//      DefaultNewArchitectureEntryPoint.load();
+//    }
     ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     ApplicationLifecycleDispatcher.onApplicationCreate(this);
   }

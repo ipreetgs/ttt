@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "tipsytaxi",
-    "slug": "tipsytaxi",
+    "name": "Tipsi Taxi",
+    "slug": "Tipsi Taxi",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ]
   },
-  "name": "tipsytaxi"
+  "name": "Tipsi Taxi"
 }
